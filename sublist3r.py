@@ -709,7 +709,7 @@ class Virustotal(enumratorBaseThreaded):
     def enumerate(self):
         global vt_apikey
         if 'vt_apikey' not in globals():
-            return
+            return []
         while self.url != '':
             resp = self.send_req(self.url)
             resp = json.loads(resp)

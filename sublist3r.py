@@ -707,6 +707,9 @@ class Virustotal(enumratorBaseThreaded):
 
     # once the send_req is rewritten we don't need to call this function, the stock one should be ok
     def enumerate(self):
+        global vt_apikey
+        if not vt_apikey:
+            return
         while self.url != '':
             resp = self.send_req(self.url)
             resp = json.loads(resp)
